@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Friend Finder App</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://bootswatch.com/flatly/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- Modal -->
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title" id="exampleModalLabel">Meet Your New Co-Pilot</h3>
+            <button type="button" class="close" d="close-modal" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h4 id="match-name"></h4>
+            <img id="match-image" src="">
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="close-modal" class="btn btn-danger" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="jumbotron text-center">
+      <h1 class=""><i class="fa fa-star" aria-hidden="true"></i>Star Wars Friend Finder</h1>
+      <h3>Answer Honestly And See Who Your Co-Pilot Will Be.</h3>
+      <hr>
+      <a href="/"><button type="button" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-home"></span></button></a>
+      </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">Find Your Star Wars Co-Pilot</h4>
+          </div>
+          <div class="panel-body">
+
+            <form role="form" id="friend-form">
+              <div class="form-group">
+                <label for="">Your Name</label>
+                <input type="text" class="form-control" id="name" required>
+              </div>
+
+              <div class="form-group">
+                <label for="">Link to Your Picture</label>
+                <input type="text" class="form-control" id="link" required>
+              </div>
+
+              <h3>If people are rude to me I just shrug it off.</h3>
+              <select class="custom-select" id="question1">
+                <option disabled selected>Select an option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2 (Disagree)</option>
+                <option value="3">3 (Neutral)</option>
+                <option value="4">4 (Agree)</option>
+                <option value="5">5 (Strongly Agree)</option>
+              </select>
+
+              <h3>I do the right thing because it's the right thing to do.</h3>
+              <select class="custom-select" id="question2">
+                <option disabled selected>Select an option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2 (Disagree)</option>
+                <option value="3">3 (Neutral)</option>
+                <option value="4">4 (Agree)</option>
+                <option value="5">5 (Strongly Agree)</option>
+              </select>
+
+              <h3>I prefer assisting others to achieve their goals to chasing my own.</h3>
+              <select class="custom-select" id="question3">
+                <option disabled selected>Select an option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2 (Disagree)</option>
+                <option value="3">3 (Neutral)</option>
+                <option value="4">4 (Agree)</option>
+                <option value="5">5 (Strongly Agree)</option>
+              </select>
+
+              <h3>I am not personally ambitious.</h3>
+              <select class="custom-select" id="question4">
+                <option disabled selected>Select an option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2 (Disagree)</option>
+                <option value="3">3 (Neutral)</option>
+                <option value="4">4 (Agree)</option>
+                <option value="5">5 (Strongly Agree)</option>
+              </select>
+
+              <h3>I rarely am upset by others.</h3>
+              <select class="custom-select" id="question5">
+                <option disabled selected>Select an option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2 (Disagree)</option>
+                <option value="3">3 (Neutral)</option>
+                <option value="4">4 (Agree)</option>
+                <option value="5">5 (Strongly Agree)</option>
+              </select>
+
+              <h3>I believe all people are born equal.</h3>
+              <select class="custom-select" id="question6">
+                <option disabled selected>Select an option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2 (Disagree)</option>
+                <option value="3">3 (Neutral)</option>
+                <option value="4">4 (Agree)</option>
+                <option value="5">5 (Strongly Agree)</option>
+              </select>
+
+              <h3>I understand and appreciate other people's feelings.</h3>
+              <select class="custom-select" id="question7">
+                <option disabled selected>Select an option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2 (Disagree)</option>
+                <option value="3">3 (Neutral)</option>
+                <option value="4">4 (Agree)</option>
+                <option value="5">5 (Strongly Agree)</option>
+              </select>
+
+              <h3>I don't like being in charge of other's.</h3>
+              <select class="custom-select" id="question8">
+                <option disabled selected>Select an option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2 (Disagree)</option>
+                <option value="3">3 (Neutral)</option>
+                <option value="4">4 (Agree)</option>
+                <option value="5">5 (Strongly Agree)</option>
+              </select>
+
+              <h3>I believe fairness is more important than personal gain.</h3>
+              <select class="custom-select" id="question9">
+                <option disabled selected>Select an option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2 (Disagree)</option>
+                <option value="3">3 (Neutral)</option>
+                <option value="4">4 (Agree)</option>
+                <option value="5">5 (Strongly Agree)</option>
+              </select>
+
+              <h3>I don't react to things on the spur of the moment.</h3>
+              <select class="custom-select" id="question10">
+                <option disabled selected>Select an option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2 (Disagree)</option>
+                <option value="3">3 (Neutral)</option>
+                <option value="4">4 (Agree)</option>
+                <option value="5">5 (Strongly Agree)</option>
+              </select>
+              <br><br>
+              <button type="submit" id="add-btn" class="btn btn-danger submit" data-toggle="modal" data-target=".bd-example-modal-lg">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    $("#add-btn").on("click", function (event) {
+      event.preventDefault();
+      var forceFriend = {
+        name: $("#name").val().trim(),
+        photo: $("#link").val().trim(),
+        preferences: [$("#question1").val(), $("#question2").val(), $("#question3").val(), $("#question4").val(), $("#question5").val(), $("#question6").val(), $("#question7").val(), $("#question8").val(), $("#question9").val(), $("#question10").val()]
+      };
+      $("#friend-form").html("Meet your match!");
+      $.post("/api/friends", forceFriend)
+        .done(function (data) {
+          $("#match-name").text(data.name);
+          $("#match-image").attr("src", data.photo);
+        });
+    });
+    $("#close-modal").on("click", function () {
+      setTimeout(function () { location.reload() }, 1000);
+    });
+  </script>
+</body>
+
+</html>

@@ -1,2 +1,2 @@
 # Friend-Finder
-A friend matching app
+A Star Wars co-pilot matching app
